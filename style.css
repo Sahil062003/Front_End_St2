@@ -1,158 +1,148 @@
-body{
-    margin:0;
-    font-family: 'Prompt', sans-serif;
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Fira sans", sans-serif;
 }
 
-.header{
-    
-    width:100%;
-    height:120px;
-    box-shadow:0px 20px 8px #bcccdc;
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	color: #FFF;
+	background-color: #374151;
 }
 
-.header .content{
-    padding:15px;
-    font-size:25px;
-    background-color:  #bcccdc;
-
-    
+header {
+	padding: 2rem 1rem;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
 }
 
-input[type="checkbox"]:checked + label{
-    text-decoration: line-through;
-    color: #c2c2c2;
+header h1{ 
+	font-size: 2.5rem;
+	font-weight: 300;
+	color: #6B7280;
+	margin-bottom: 1rem;
 }
 
-.header .content span{
-    color:#54BAB9;
+#new-task-form {
+	display: flex;;
 }
 
-.section-1{
-    margin-top:20px;
+input, button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
 }
 
-.content-1{
-    display:flex;
-    flex-wrap: wrap;
-
-    height:900px;
-    padding:20px;
-
+#new-task-input {
+	flex: 1 1 0%;
+	background-color: #1F2937;
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+	color: #EEE;
+	font-size: 1.25rem;
 }
 
-.box{
-    background-color: #F7F7F7;
-    border-radius:20px;
-    margin:35px 4px 3px 10px;
-    height:400px;
-    width:400px;    
+#new-task-input::placeholder {
+	color: #EC4899;
 }
 
-.box:hover{
-    width:420px;
-    height:420px;
+#new-task-submit {
+	color: #EC4899;
+	font-size: 1.25rem;
+	font-weight: 700;
+	background-image: linear-gradient(to right, #EC4899, #8B5CF6);
+	background-clip: text;
+	/* text-fill-color: transparent; */
+	cursor: pointer;
+	transition: 0.4s;
 }
 
-.box h3{
-    font-size:25px;
-    border-bottom:1px solid black;
-    padding:20px;
+#new-task-submit:hover {
+	opacity: 0.8;
 }
 
-.box-content{
-    font-size:22px;
-    padding:20px;
+#new-task-submit:active {
+	opacity: 0.6;
 }
 
-
-.box-content input{
-    margin:20px;
-    width:20px;
-    height:20px;
+main {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
 }
 
-
-#add-new{
-    font-size: 40px;
-    padding:0px 0px 0px 80%;
-    margin:-30px -30px auto auto;
-    border-radius:10px;
-    border:none;
-    background-color: #bcccdc;
-}
-#add-new:hover{
-    text-decoration: underline;
+.task-list {
+	padding: 1rem;
 }
 
-
-.overlay{
-    display:none;
-    z-index:1;  
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color: rgba(0,0,0,0.5);
+.task-list h2 {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: #6B7280;
+	margin-bottom: 1rem;
 }
 
-.modal{
-    max-width: 500px;
-    height:300px;
-    background: white;
-    margin:auto;
-    left:0;
-    bottom:0;
-    top:0;
-    right:0;
-    position: absolute;
+#tasks .task {
+	display: flex;
+	justify-content: space-between;
+	background-color: #111827;
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
 }
 
-.modal-content{
-    height:300px;
-    background-color: aliceblue;
-    padding:15px;
+.task .content {
+	flex: 1 1 0%;
 }
 
-.close-modal{
-    float:right;
-    border-radius:10px;
-    font-size:15px;
-    border:none;
-    background-color: white;
-    padding:10px;
+.task .content .text {
+	color: #EEE;
+	font-size: 1.125rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
 }
 
-.modal-content input{
-    width:60%;
-    height:25px;
-    border-radius:20px;
-    border:none;
-    background-color:white;
+.task .content .text:not(:read-only) {
+	color: #EC4899;
 }
 
-#submit-btn{
-    float:right;
-    border-radius: 10px;
-    font-size:15px;
-    border:none;
-    background-color: white;
-    margin:15px;
-    padding:10px;
+.task .actions {
+	display: flex;
+	margin: 0 -0.5rem;
 }
 
-@media screen and (max-width:1330px){
+.task .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
 
-    .section-1{
-        height:1400px;
-    }
-}   
+.task .actions button:hover {
+	opacity: 0.8;
+}
 
-@media screen and (max-width:900px)
-{
-    .section-1{
-        height:2200px;
-    }
+.task .actions button:active {
+	opacity: 0.6;
+}
+
+.task .actions .edit {
+	background-image: linear-gradient(to right, #EC4899, #8B5CF6);
+	background-clip: text;
+	/* text-fill-color: transparent; */
+}
+
+.task .actions .delete {
+	color: crimson;
 }
 
 
